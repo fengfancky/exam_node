@@ -1,5 +1,5 @@
 var ConnectDB = require('./db_connect')
 
 connect = new ConnectDB();
-connect.queryData("Select * From class_table")
-console.log(connect.getRes());
+
+console.log(connect.queryData("Select * From class_table"));
