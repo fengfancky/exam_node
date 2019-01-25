@@ -19,9 +19,10 @@ function ConnectDB(){
                 for( var i=0;i<results.length;i++){
                  res +=results[i].id+" "+results[i].name+" "+results[i].des+"\n";
                 }
-               return res;
+               
             }
         });
+        return res;
     };
 }
 
