@@ -11,7 +11,7 @@ function ConnectDB(){
     });
 
     this.queryData = function(str){
-        var res;
+        var res = '';
         connection.query(str,function(err,results){
             if(err){
                 console.log(err);
@@ -19,7 +19,7 @@ function ConnectDB(){
                 for( var i=0;i<results.length;i++){
                  res +=results[i].id+" "+results[i].name+" "+results[i].des+"\n";
                 }
-               console.log(res);
+               return res;
             }
         });
     };
