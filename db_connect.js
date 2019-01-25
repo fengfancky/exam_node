@@ -18,16 +18,20 @@ function ConnectDB(){
             if(err){
                 console.log(err);
                 res = err;
+                console.log(res+" >>>0");
             }else{
                 for( var i=0;i<results.length;i++){
                  res +=results[i].id+" "+results[i].name+" "+results[i].des+"\n";
                 }
+                console.log(res+" >>>1");
             }
+            console.log(res+" >>>2");
         });
         
     };
 
     this.getRes = function(){
+        console.log(res+" >>>3");
         return res;
     }
     
