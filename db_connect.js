@@ -9,25 +9,28 @@ function ConnectDB(){
         port:'3306',
         database:'myclass'
     });
+
     var res = '';
 
     this.queryData = function(str){
-       
-        connection.query(str,getData);
+        
+        connection.query(str,function(err,results){
+            if(err){
+                console.log(err);
+                res = err;
+            }else{
+                for( var i=0;i<results.length;i++){
+                 res +=results[i].id+" "+results[i].name+" "+results[i].des+"\n";
+                }
+            }
+        });
         
     };
 
-    var getData = function(err,results){
-        if(err){
-            console.log(err);
-        }else{
-            for( var i=0;i<results.length;i++){
-             res +=results[i].id+" "+results[i].name+" "+results[i].des+"\n";
-            }
-           
-        }
+    this.getRes = function(){
         return res;
     }
+    
 }
 
 module.exports = ConnectDB;
