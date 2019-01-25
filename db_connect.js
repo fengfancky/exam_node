@@ -21,8 +21,9 @@ function ConnectDB(){
                 }
                
             }
+            return res;
         });
-        return res;
+        
     };
 }
 
