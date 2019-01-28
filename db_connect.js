@@ -10,14 +10,16 @@ function ConnectDB(){
         database:'myclass'
     });
 
+    this.callback = function(str){
+        return str;
+    };
+
     
 
-    this.queryData = function(str){
+    this.queryData = function(str,callback){
 
         var res = '';
-        connection.query(str,get(err,results));
-
-        function get(err,results){
+        connection.query(str, function(err,results){
             if(err){
                 console.log(err);
                 res = err;
@@ -26,11 +28,10 @@ function ConnectDB(){
                  res +=results[i].id+" "+results[i].name+" "+results[i].des+"\n";
                 }
                 console.log(res);
+                callback(res);
             }
 
-        };
-
-        return res;
+        });
         
     };
     
