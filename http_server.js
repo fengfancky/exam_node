@@ -21,16 +21,29 @@ app.get('/myclass/table_name',function(req,resp){
         var arr = urlstr.split('?');
         var params_get = arr[1];
         var json = querystring.parse(params_get);
-        console.log(json);
-        // connect.queryData("Select * From class_table where id="+json.id,function(str){
-        //     console.log(str);
-        //     resp.send('>> Get \n'+str);
-        // });
+		
+        connect.queryData("Select * From class_table where id="+json.id,function(str){
+            resp.send(str);
+        });
+	
         
     }
     
 });
 
 app.post('/myclass/table_name',function(req,resp){
-    resp.send('Hello World >> Post 111111');
-})
+    var urlstr =req.url; 
+
+    if(urlstr.indexOf('?') != -1){
+        var arr = urlstr.split('?');
+        var params_get = arr[1];
+        var json = querystring.parse(params_get);
+		
+        connect.queryData("Select * From class_table where id="+json.id,function(str){
+            resp.send(str);
+        });
+	
+        
+    }
+
+});
