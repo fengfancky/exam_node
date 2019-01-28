@@ -21,10 +21,11 @@ app.get('/myclass/table_name',function(req,resp){
         var arr = urlstr.split('?');
         var params_get = arr[1];
         var json = querystring.parse(params_get);
-        connect.queryData("Select * From class_table where id="+json.id,function(str){
-            console.log(str);
-            resp.send('>> Get \n'+str);
-        });
+        console.log(json);
+        // connect.queryData("Select * From class_table where id="+json.id,function(str){
+        //     console.log(str);
+        //     resp.send('>> Get \n'+str);
+        // });
         
     }
     
