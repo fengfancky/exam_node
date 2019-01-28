@@ -10,7 +10,7 @@ function ConnectDB(){
         database:'myclass'
     });
 
-    this.callback = function(str){
+    this.getData = function(str){
         return str;
     };
 
